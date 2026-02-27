@@ -25,7 +25,7 @@
 | 06 | [Vendor Management](#06-vendor-management) | Evaluation, NDA, Access Control |
 | 07 | [Client Management](#07-client-management) | CRM, Onboarding, Retention |
 | 08 | [Compliance & Legal](#08-compliance--legal) | PDPL, Privacy Policy, OSHA |
-| 10 | [90-Day Roadmap](#10-90-day-roadmap) | Prioritized execution plan |
+| 09 | [90-Day Roadmap](#09-90-day-roadmap) | Prioritized execution plan |
 
 ---
 
@@ -447,16 +447,8 @@ See templates:
 
 ---
 
-## 09 Your Role & Salary
 
-### Job Title
-
-> **Digital Security & Growth Manager**
-
-Also appropriate: Head of Digital Operations · Cybersecurity & Digital Growth Manager
-
-
-## 10 90-Day Roadmap
+## 09 90-Day Roadmap
 
 ### Month 1 — Security & Foundation (Days 1–30)
 
