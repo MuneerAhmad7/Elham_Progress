@@ -1,0 +1,83 @@
+<!-- ============================================================
+     Elham Progress — WhatsApp Floating Button
+     File: templates/whatsapp-button.html
+     Add before </body> tag on EVERY page of elhamco.com
+     ============================================================ -->
+
+<!-- WhatsApp Floating Button with pulse animation -->
+<style>
+  .wa-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    text-decoration: none;
+    display: block;
+  }
+
+  .wa-float img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .wa-float:hover img {
+    transform: scale(1.1);
+    box-shadow: 0 6px 28px rgba(37, 211, 102, 0.7);
+  }
+
+  /* Pulse ring animation */
+  .wa-float::before {
+    content: '';
+    position: absolute;
+    top: -4px; left: -4px; right: -4px; bottom: -4px;
+    border: 2px solid #25D366;
+    border-radius: 50%;
+    animation: waPulse 2s infinite;
+    opacity: 0;
+  }
+
+  @keyframes waPulse {
+    0%   { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.4); opacity: 0; }
+  }
+
+  /* Tooltip label */
+  .wa-tooltip {
+    position: absolute;
+    right: 72px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #25D366;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-family: sans-serif;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+
+  .wa-float:hover .wa-tooltip {
+    opacity: 1;
+  }
+</style>
+
+<a href="https://wa.me/966508989323?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20your%20construction%20services."
+   class="wa-float"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Chat with us on WhatsApp">
+
+  <span class="wa-tooltip">Chat with us!</span>
+
+  <!-- Use this SVG icon (no external image dependency) -->
+  <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="30" cy="30" r="30" fill="#25D366"/>
+    <path d="M30 13C20.6 13 13 20.6 13 30c0 3.1.9 6 2.4 8.5L13 47l8.7-2.3C24 46.1 26.9 47 30 47c9.4 0 17-7.6 17-17S39.4 13 30 13zm9.3 23.3c-.4 1.1-2.1 2-3.3 2.3-.9.2-2 .3-5.8-1.2-4.9-1.9-8-6.8-8.3-7.1-.3-.3-2.2-2.9-2.2-5.6 0-2.7 1.4-4 1.9-4.6.5-.6 1.1-.7 1.4-.7h1c.3 0 .8-.1 1.2.9l1.7 4.1c.2.4.1.8-.1 1.1l-.7.8c-.2.3-.5.6-.2 1.1.3.5 1.3 2.1 2.8 3.4 1.9 1.7 3.5 2.2 4 2.4.5.2.8.2 1.1-.1l.8-.9c.3-.4.7-.3 1.1-.1l3.7 1.7c.4.2.7.3.8.5.1.2.1 1.1-.3 2.2z" fill="white"/>
+  </svg>
+</a>

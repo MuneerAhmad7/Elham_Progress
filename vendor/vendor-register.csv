@@ -1,0 +1,10 @@
+Vendor Name,Service,Contact Name,Contact Email,Contact Phone,Contract Start,Contract End,Monthly Cost (SAR),SLA Uptime %,Support Response Hours,NDA Signed,Last Review Date,Notes
+NOSCO IT TEAM (namliah.com),Website Design & Development,,[TBD],[TBD],,[TBD],[TBD],99.5,24,No,[DATE],Primary web vendor — get NDA signed
+Domain Registrar,Domain Registration elhamco.com,,[TBD],[TBD],,[TBD],[TBD],,,[TBD],[DATE],Identify via WHOIS - confirm renewal date
+Hosting Provider,Web Server Hosting,,[TBD],[TBD],,[TBD],[TBD],[TBD],[TBD],[TBD],[DATE],Get SLA documentation
+Cloudflare,WAF + CDN + DNS,Cloudflare Support,enterprise@cloudflare.com,,2025-01-01,,0 (Free),99.9,Email,N/A,[DATE],Free tier - upgrade to Pro for Logpush
+Email Provider,info@elhamco.com Mail Service,,[TBD],[TBD],,[TBD],[TBD],,,[TBD],[DATE],Likely via hosting cPanel
+UptimeRobot,Uptime Monitoring,UptimeRobot Support,support@uptimerobot.com,,2025-01-01,,0 (Free),,,N/A,[DATE],Free tier - 5 min check intervals
+ELK Stack (Self-hosted),SIEM & Log Analysis,Internal,,,,,[Server Cost],,,[TBD],[DATE],Self-managed on Ubuntu server
+Mailchimp,Email Marketing,Mailchimp Support,support@mailchimp.com,,2025-01-01,,0 (Free up to 500),,,N/A,[DATE],Free tier for newsletter
+HubSpot CRM,Client Relationship Management,HubSpot Support,support@hubspot.com,,2025-01-01,,0 (Free),,,N/A,[DATE],Free CRM - upgrade if team grows

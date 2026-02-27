@@ -1,0 +1,87 @@
+# ============================================================
+# Elham Progress — Filebeat Configuration
+# File: logs/filebeat.yml
+# Install on the web server to ship logs to Logstash/ELK
+# Install: sudo apt install filebeat -y
+# ============================================================
+
+filebeat.inputs:
+
+  # Apache Access Log
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/apache2/access.log
+      - /var/log/httpd/access_log
+    fields:
+      log_type: apache_access
+      environment: production
+      website: elhamco.com
+    fields_under_root: true
+    multiline.pattern: '^\d{1,3}\.\d{1,3}'
+    multiline.negate: true
+    multiline.match: after
+
+  # Apache Error Log
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/apache2/error.log
+      - /var/log/httpd/error_log
+    fields:
+      log_type: apache_error
+      environment: production
+    fields_under_root: true
+
+  # System Auth Log (failed logins, sudo usage)
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/auth.log
+      - /var/log/secure
+    fields:
+      log_type: system_auth
+    fields_under_root: true
+
+  # Syslog
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/syslog
+      - /var/log/messages
+    fields:
+      log_type: syslog
+    fields_under_root: true
+
+# Processors: enhance log data before shipping
+processors:
+  - add_host_metadata:
+      when.not.contains.tags: forwarded
+  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
+  - add_kubernetes_metadata: ~
+  - decode_json_fields:
+      fields: ["message"]
+      process_array: false
+      max_depth: 1
+      target: ""
+      overwrite_keys: false
+
+# Output to Logstash
+output.logstash:
+  hosts: ["YOUR-ELK-SERVER-IP:5044"]
+  # ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]  # Enable for TLS
+
+# Alternative: Output directly to Elasticsearch (simpler)
+# output.elasticsearch:
+#   hosts: ["YOUR-ELK-SERVER-IP:9200"]
+#   index: "elhamco-logs-%{+yyyy.MM.dd}"
+
+# Logging
+logging.level: info
+logging.to_files: true
+logging.files:
+  path: /var/log/filebeat
+  name: filebeat
+  keepfiles: 7
+  permissions: 0640

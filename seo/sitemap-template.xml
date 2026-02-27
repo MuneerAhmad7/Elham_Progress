@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================
+     Elham Progress — Sitemap Template
+     File: seo/sitemap-template.xml
+     Upload to: https://elhamco.com/sitemap.xml
+     Submit at: Google Search Console → Sitemaps
+     Also submit at: https://www.bing.com/webmasters
+     Update this file when new pages are added.
+     ============================================================ -->
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ── HOMEPAGE ─────────────────────────────────────────── -->
+  <url>
+    <loc>https://elhamco.com/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <!-- Arabic version -->
+    <xhtml:link rel="alternate" hreflang="ar" href="https://elhamco.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://elhamco.com/"/>
+  </url>
+
+  <!-- ── ABOUT ─────────────────────────────────────────────── -->
+  <url>
+    <loc>https://elhamco.com/about</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ── SERVICE PAGES (create these as dedicated pages) ──── -->
+  <url>
+    <loc>https://elhamco.com/scaffold-rental-riyadh</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://elhamco.com/formwork-systems-saudi-arabia</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://elhamco.com/concrete-repair-contractor-riyadh</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://elhamco.com/civil-construction-company-ksa</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://elhamco.com/facility-management-riyadh</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://elhamco.com/pipeline-construction-saudi-arabia</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://elhamco.com/site-preparation-riyadh</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ── PROJECTS ──────────────────────────────────────────── -->
+  <url>
+    <loc>https://elhamco.com/projects</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://elhamco.com/projects/al-jouf-pipeline-project</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ── BLOG (add entries as posts are published) ─────────── -->
+  <url>
+    <loc>https://elhamco.com/blog</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Add individual blog posts here:
+  <url>
+    <loc>https://elhamco.com/blog/scaffold-safety-saudi-arabia</loc>
+    <lastmod>2025-02-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  -->
+
+  <!-- ── CONTACT ───────────────────────────────────────────── -->
+  <url>
+    <loc>https://elhamco.com/contact</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ── LEGAL PAGES ───────────────────────────────────────── -->
+  <url>
+    <loc>https://elhamco.com/privacy-policy</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://elhamco.com/terms</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>

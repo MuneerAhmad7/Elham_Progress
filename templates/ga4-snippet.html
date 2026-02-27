@@ -1,0 +1,118 @@
+<!-- ============================================================
+     Elham Progress — Google Analytics 4 + Meta Tags
+     File: templates/ga4-snippet.html
+     Add inside <head> on ALL pages of elhamco.com
+     Replace G-XXXXXXXXXX with your actual Measurement ID
+     ============================================================ -->
+
+<!-- ── Google Analytics 4 ──────────────────────────────────── -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX', {
+    'anonymize_ip': true,          // GDPR/PDPL compliance
+    'cookie_flags': 'SameSite=None;Secure',
+    'send_page_view': true
+  });
+
+  // Track phone clicks
+  document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      gtag('event', 'phone_click', {
+        'event_category': 'Contact',
+        'event_label': this.href.replace('tel:', '')
+      });
+    });
+  });
+
+  // Track WhatsApp clicks
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      gtag('event', 'whatsapp_click', {
+        'event_category': 'Contact',
+        'event_label': 'WhatsApp Button'
+      });
+    });
+  });
+
+  // Track form submissions
+  document.addEventListener('submit', function(e) {
+    if (e.target.tagName === 'FORM') {
+      gtag('event', 'form_submit', {
+        'event_category': 'Lead',
+        'event_label': e.target.id || 'Contact Form'
+      });
+    }
+  });
+</script>
+
+<!-- ── Homepage Meta Tags Template ──────────────────────────── -->
+<!-- HOMEPAGE -->
+<title>Elham Progress | Construction Company Riyadh | Scaffold & Formwork KSA</title>
+<meta name="description" content="Elham Progress — Leading construction company in Riyadh, Saudi Arabia. Expert scaffold rental, formwork systems, concrete repair, and civil construction. OSHA compliant. Call +966 50 89 89 323.">
+<meta name="keywords" content="construction company riyadh, scaffold rental saudi arabia, formwork KSA, concrete repair riyadh, civil contractor saudi arabia, شركة مقاولات الرياض">
+<meta name="author" content="Elham Progress Construction Co.">
+<meta name="robots" content="index, follow">
+<meta name="language" content="en">
+<link rel="canonical" href="https://elhamco.com/">
+
+<!-- Open Graph (Social Media Preview) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://elhamco.com/">
+<meta property="og:title" content="Elham Progress | Construction Company Riyadh, Saudi Arabia">
+<meta property="og:description" content="Leading scaffold rental, formwork, and civil construction company in Riyadh KSA. OSHA compliant. Get a free quote today.">
+<meta property="og:image" content="https://elhamco.com/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_SA">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Elham Progress | Construction Company Riyadh">
+<meta name="twitter:description" content="Expert scaffold rental, formwork, and civil construction in Saudi Arabia. Get a free quote.">
+<meta name="twitter:image" content="https://elhamco.com/assets/og-image.jpg">
+
+<!-- Schema Markup — paste JSON from seo/schema-localbusiness.json -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "ConstructionContractor"],
+  "name": "Elham Progress Construction Co.",
+  "url": "https://elhamco.com",
+  "telephone": "+966508989323",
+  "email": "info@elhamco.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Riyadh",
+    "addressCountry": "SA"
+  }
+}
+</script>
+
+<!-- ── Service Page Meta Template ────────────────────────────
+     Duplicate and customize for each service page:
+     ──────────────────────────────────────────────────────── -->
+
+<!-- SCAFFOLD RENTAL PAGE -->
+<!--
+<title>Scaffold Rental Riyadh | OSHA Compliant | Elham Progress</title>
+<meta name="description" content="Professional scaffold rental services in Riyadh, Saudi Arabia. All systems meet OSHA standards. Serving residential, commercial & industrial projects. Call +966 50 89 89 323.">
+<link rel="canonical" href="https://elhamco.com/scaffold-rental-riyadh">
+-->
+
+<!-- FORMWORK PAGE -->
+<!--
+<title>Formwork Systems Saudi Arabia | Concrete Formwork | Elham Progress</title>
+<meta name="description" content="High-quality formwork systems for concrete construction in Saudi Arabia. Available for rental and sale. Expert installation support. Contact Elham Progress today.">
+<link rel="canonical" href="https://elhamco.com/formwork-systems-saudi-arabia">
+-->
+
+<!-- CONCRETE REPAIR PAGE -->
+<!--
+<title>Concrete Repair Contractor Riyadh | Structure Refurbishment | Elham Progress</title>
+<meta name="description" content="Expert concrete repair and refurbishment contractor in Riyadh. Structural repairs, restoration, and waterproofing. Free site assessment available. Call +966 50 89 89 323.">
+<link rel="canonical" href="https://elhamco.com/concrete-repair-contractor-riyadh">
+-->

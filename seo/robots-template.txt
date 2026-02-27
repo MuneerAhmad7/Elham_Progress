@@ -1,0 +1,41 @@
+# ============================================================
+# Elham Progress — robots.txt
+# File: seo/robots-template.txt
+# Upload to: https://elhamco.com/robots.txt
+# ============================================================
+
+User-agent: *
+Allow: /
+
+# Block admin areas from crawling
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /dashboard/
+Disallow: /login/
+
+# Block private/sensitive directories
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /backup/
+Disallow: /logs/
+Disallow: /private/
+Disallow: /.env
+Disallow: /.git/
+
+# Block duplicate content
+Disallow: /wp-json/
+Disallow: /?s=
+Disallow: /search
+
+# Allow important bots specifically
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Point to sitemap
+Sitemap: https://elhamco.com/sitemap.xml
