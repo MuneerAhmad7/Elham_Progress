@@ -25,7 +25,6 @@
 | 06 | [Vendor Management](#06-vendor-management) | Evaluation, NDA, Access Control |
 | 07 | [Client Management](#07-client-management) | CRM, Onboarding, Retention |
 | 08 | [Compliance & Legal](#08-compliance--legal) | PDPL, Privacy Policy, OSHA |
-| 09 | [Your Role & Salary](#09-your-role--salary) | Title, SAR/USD ranges, KPIs |
 | 10 | [90-Day Roadmap](#10-90-day-roadmap) | Prioritized execution plan |
 
 ---
@@ -456,34 +455,6 @@ See templates:
 
 Also appropriate: Head of Digital Operations · Cybersecurity & Digital Growth Manager
 
-### Salary Range (Saudi Arabia, 2025)
-
-| Level | SAR/Month | USD/Month |
-|-------|-----------|-----------|
-| Entry IT Security Officer | 8,000–12,000 | $2,100–$3,200 |
-| Mid Cybersecurity Manager | 15,000–22,000 | $4,000–$5,900 |
-| **Your Scope (This Role)** | **25,000–32,000** | **$6,600–$8,500** |
-| Head of Cybersecurity / CDO | 35,000–55,000 | $9,300–$14,700 |
-
-### Negotiation Argument
-
-> *"My role covers cybersecurity hardening, penetration testing, SIEM infrastructure, SEO and organic lead generation, vendor management, and client systems — responsibilities that would typically require 3 separate hires at a combined cost of SAR 60,000+/month. I am consolidating that into one role."*
-
-### Benefits to Negotiate
-
-| Benefit | Target Value |
-|---------|-------------|
-| Housing Allowance | SAR 3,000–5,000/month |
-| Transport Allowance | SAR 1,000–2,000/month |
-| Performance Bonus | 10–20% of annual salary |
-| Training Budget | SAR 5,000–10,000/year |
-| Annual Air Tickets | 2 per year (expat) |
-| Medical Insurance | Full family coverage |
-| Annual Leave | 30 days |
-
-Full job description template: [`docs/job-description.md`](./docs/job-description.md)
-
----
 
 ## 10 90-Day Roadmap
 
