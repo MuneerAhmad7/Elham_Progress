@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elhamco Tech - IT Solutions & Networking</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ============ RESET & BASE ============ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ============ ANIMATED BACKGROUND PARTICLES ============ */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #00d4ff;
+            border-radius: 50%;
+            animation: float linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* ============ NAVBAR ============ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .navbar.scrolled {
+            padding: 15px 60px;
+            background: rgba(10, 10, 10, 0.95);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 800;
+            color: white;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .logo-text span {
+            color: #00d4ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav-links li a {
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00d4ff, #7b2ff7);
+            transition: width 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: #00d4ff;
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        .nav-btn {
+            padding: 10px 28px;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            border: none;
+            border-radius: 30px;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 2px;
+            background: white;
+            transition: all 0.3s;
+        }
+
+        /* ============ HERO SECTION ============ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 60px 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 30px;
+            font-size: 13px;
+            color: #00d4ff;
+            margin-bottom: 25px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff88;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 25px;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #8892b0;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .btn-primary {
+            padding: 15px 35px;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-secondary {
+            padding: 15px 35px;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-secondary:hover {
+            border-color: #00d4ff;
+            color: #00d4ff;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 60px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 500px;
+            height: 500px;
+            z-index: 1;
+        }
+
+        .hero-image-circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(123, 47, 247, 0.1));
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: rotateCircle 20s linear infinite;
+        }
+
+        @keyframes rotateCircle {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .orbit-icon {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 212, 255, 0.15);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #00d4ff;
+            animation: counterRotate 20s linear infinite;
+        }
+
+        @keyframes counterRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
+        }
+
+        .orbit-icon:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
+        .orbit-icon:nth-child(2) { bottom: 0; left: 50%; transform: translateX(-50%); }
+        .orbit-icon:nth-child(3) { left: 0; top: 50%; transform: translateY(-50%); }
+        .orbit-icon:nth-child(4) { right: 0; top: 50%; transform: translateY(-50%); }
+        .orbit-icon:nth-child(5) { top: 12%; right: 12%; }
+        .orbit-icon:nth-child(6) { bottom: 12%; left: 12%; }
+
+        .center-icon {
+            font-size: 80px;
+            color: #00d4ff;
+            animation: counterRotate 20s linear infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============ STATS BAR ============ */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            padding: 50px 60px;
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #8892b0;
+            margin-top: 5px;
+        }
+
+        /* ============ SERVICES SECTION ============ */
+        .section {
+            padding: 100px 60px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 30px;
+            font-size: 13px;
+            color: #00d4ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .section-header h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: #8892b0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 40px 35px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #00d4ff, #7b2ff7);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 212, 255, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 25px;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+
+        .service-icon.blue {
+            background: rgba(0, 212, 255, 0.15);
+            color: #00d4ff;
+        }
+
+        .service-icon.purple {
+            background: rgba(123, 47, 247, 0.15);
+            color: #7b2ff7;
+        }
+
+        .service-icon.green {
+            background: rgba(0, 255, 136, 0.15);
+            color: #00ff88;
+        }
+
+        .service-icon.orange {
+            background: rgba(255, 165, 0, 0.15);
+            color: #ffa500;
+        }
+
+        .service-icon.red {
+            background: rgba(255, 107, 107, 0.15);
+            color: #ff6b6b;
+        }
+
+        .service-icon.pink {
+            background: rgba(255, 0, 128, 0.15);
+            color: #ff0080;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #8892b0;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .service-link {
+            color: #00d4ff;
+            font-size: 14px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s;
+        }
+
+        .service-link:hover {
+            gap: 15px;
+        }
+
+        /* ============ WHY CHOOSE US ============ */
+        .why-section {
+            background: linear-gradient(180deg, rgba(0, 212, 255, 0.03) 0%, transparent 100%);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .why-image {
+            position: relative;
+        }
+
+        .why-image-box {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(123, 47, 247, 0.1));
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .server-rack {
+            display: flex;
+            gap: 15px;
+        }
+
+        .server {
+            width: 80px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .server-light {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: blink 2s infinite;
+        }
+
+        .server-light.green { background: #00ff88; }
+        .server-light.blue { background: #00d4ff; }
+        .server-light.orange { background: #ffa500; }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.2; }
+        }
+
+        .server-line {
+            width: 100%;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+        }
+
+        .floating-badge {
+            position: absolute;
+            padding: 15px 25px;
+            background: rgba(10, 10, 10, 0.9);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .floating-badge.top-right {
+            top: -20px;
+            right: -20px;
+        }
+
+        .floating-badge.bottom-left {
+            bottom: -20px;
+            left: -20px;
+        }
+
+        .badge-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .badge-text h4 {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .badge-text p {
+            font-size: 12px;
+            color: #8892b0;
+        }
+
+        .why-content h2 {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .why-content > p {
+            color: #8892b0;
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+
+        .why-features {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .why-feature {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .feature-check {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00ff88;
+            font-size: 18px;
+        }
+
+        .feature-text h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .feature-text p {
+            font-size: 14px;
+            color: #8892b0;
+        }
+
+        /* ============ TECH STACK ============ */
+        .tech-stack {
+            padding: 80px 60px;
+            text-align: center;
+        }
+
+        .tech-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .tech-logo {
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .tech-logo:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 212, 255, 0.3);
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .tech-logo i {
+            font-size: 32px;
+            color: #00d4ff;
+        }
+
+        .tech-logo span {
+            font-size: 11px;
+            color: #8892b0;
+        }
+
+        /* ============ PROJECTS / PORTFOLIO ============ */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .project-card {
+            border-radius: 20px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.4s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-image {
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image-bg {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: rgba(255, 255, 255, 0.1);
+        }
+
+        .project-image-bg.gradient-1 {
+            background: linear-gradient(135deg, #0a192f, #112240);
+        }
+
+        .project-image-bg.gradient-2 {
+            background: linear-gradient(135deg, #1a0a2e, #2d1b69);
+        }
+
+        .project-image-bg.gradient-3 {
+            background: linear-gradient(135deg, #0a2f1a, #1b6940);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay a {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: white;
+            transition: transform 0.3s;
+        }
+
+        .project-overlay a:hover {
+            transform: scale(1.2);
+        }
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .project-tag {
+            padding: 4px 12px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 20px;
+            font-size: 11px;
+            color: #00d4ff;
+        }
+
+        .project-info h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .project-info p {
+            font-size: 13px;
+            color: #8892b0;
+            line-height: 1.6;
+        }
+
+        /* ============ TESTIMONIALS ============ */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 35px;
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            border-color: rgba(0, 212, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-stars i {
+            color: #ffa500;
+            font-size: 14px;
+        }
+
+        .testimonial-card blockquote {
+            font-size: 14px;
+            color: #8892b0;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .author-info h4 {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .author-info p {
+            font-size: 12px;
+            color: #8892b0;
+        }
+
+        /* ============ CTA SECTION ============ */
+        .cta-section {
+            padding: 100px 60px;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(123, 47, 247, 0.1));
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 30px;
+            padding: 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+            animation: rotateBg 15s linear infinite;
+        }
+
+        @keyframes rotateBg {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .cta-box h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .cta-box p {
+            font-size: 18px;
+            color: #8892b0;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+        }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 80px 60px 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-about .logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-about p {
+            font-size: 14px;
+            color: #8892b0;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-socials a {
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #8892b0;
+            transition: all 0.3s;
+        }
+
+        .footer-socials a:hover {
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            border-color: transparent;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-column h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(90deg, #00d4ff, #7b2ff7);
+        }
+
+        .footer-column ul {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-column ul li a {
+            font-size: 14px;
+            color: #8892b0;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-column ul li a:hover {
+            color: #00d4ff;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-size: 13px;
+            color: #8892b0;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .footer-bottom-links a {
+            font-size: 13px;
+            color: #8892b0;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom-links a:hover {
+            color: #00d4ff;
+        }
+
+        /* ============ SCROLL TO TOP ============ */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+            border: none;
+            border-radius: 15px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-image {
+                display: none;
+            }
+
+            .services-grid,
+            .projects-grid,
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 25px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 10, 10, 0.98);
+                flex-direction: column;
+                padding: 30px;
+                gap: 20px;
+                border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero {
+                padding: 120px 25px 60px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .section {
+                padding: 60px 25px;
+            }
+
+            .section-header h2 {
+                font-size: 30px;
+            }
+
+            .services-grid,
+            .projects-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-bar {
+                flex-wrap: wrap;
+                gap: 30px;
+                padding: 30px 25px;
+            }
+
+            .cta-box {
+                padding: 40px 25px;
+            }
+
+            .cta-box h2 {
+                font-size: 28px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer {
+                padding: 60px 25px 30px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .tech-logos {
+                gap: 20px;
+            }
+
+            .tech-logo {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============ PARTICLES BACKGROUND ============ -->
+    <div class="particles" id="particles"></div>
+
+    <!-- ============ NAVBAR ============ -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="logo">
+            <div class="logo-icon">E</div>
+            <div class="logo-text">Elhamco<span>Tech</span></div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><button class="nav-btn" onclick="window.location.href='#contact'">Get Started</button></li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- ============ HERO SECTION ============ -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Trusted IT Solutions Partner
+            </div>
+            <h1>
+                Building the Future with
+                <span class="gradient-text">Smart IT Solutions</span>
+            </h1>
+            <p>
+                From enterprise networking to cloud infrastructure, we deliver cutting-edge 
+                technology solutions that drive your business forward. Empowering organizations 
+                with reliable, scalable, and secure IT services.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="window.location.href='#services'">
+                    <i class="fas fa-rocket"></i> Explore Services
+                </button>
+                <button class="btn-secondary" onclick="window.location.href='#contact'">
+                    <i class="fas fa-phone"></i> Contact Us
+                </button>
+            </div>
+        </div>
+
+        <!-- Animated Hero Visual -->
+        <div class="hero-image">
+            <div class="hero-image-circle">
+                <div class="orbit-icon"><i class="fas fa-network-wired"></i></div>
+                <div class="orbit-icon"><i class="fas fa-shield-halved"></i></div>
+                <div class="orbit-icon"><i class="fas fa-cloud"></i></div>
+                <div class="orbit-icon"><i class="fas fa-server"></i></div>
+                <div class="orbit-icon"><i class="fas fa-code"></i></div>
+                <div class="orbit-icon"><i class="fas fa-database"></i></div>
+                <i class="fas fa-microchip center-icon"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ STATS BAR ============ -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <div class="stat-number" data-target="150">0</div>
+            <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" data-target="50">0</div>
+            <div class="stat-label">Happy Clients</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" data-target="10">0</div>
+            <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" data-target="99">0</div>
+            <div class="stat-label">% Uptime Guarantee</div>
+        </div>
+    </div>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section" id="services">
+        <div class="section-header">
+            <span class="section-tag">What We Offer</span>
+            <h2>Our IT Services & Solutions</h2>
+            <p>Comprehensive technology solutions tailored to meet your business needs and drive digital transformation.</p>
+        </div>
+
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="service-icon blue">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <h3>Network Infrastructure</h3>
+                <p>Design, implementation, and management of robust LAN/WAN networks, structured cabling, and wireless solutions for your organization.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="service-icon purple">
+                    <i class="fas fa-shield-halved"></i>
+                </div>
+                <h3>Cybersecurity Solutions</h3>
+                <p>Protect your digital assets with our comprehensive security services including firewalls, endpoint protection, and security audits.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="service-icon green">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3>Cloud Services</h3>
+                <p>Seamless migration to cloud platforms with managed hosting, backup solutions, and hybrid cloud architectures for maximum flexibility.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card">
+                <div class="service-icon orange">
+                    <i class="fas fa-server"></i>
+                </div>
+                <h3>Server Management</h3>
+                <p>24/7 server monitoring, maintenance, and optimization. We handle everything from setup to ongoing management of your server infrastructure.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-card">
+                <div class="service-icon red">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h3>CCTV & Surveillance</h3>
+                <p>Advanced video surveillance systems with IP cameras, NVR solutions, remote monitoring, and intelligent video analytics for complete security.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="service-card">
+                <div class="service-icon pink">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>IT Support & Help Desk</h3>
+                <p>Round-the-clock technical support with rapid response times. Our expert team resolves issues quickly to keep your business running smoothly.</p>
+                <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHY CHOOSE US ============ -->
+    <section class="section why-section" id="about">
+        <div class="why-grid">
+            <div class="why-image">
+                <div class="why-image-box">
+                    <div class="server-rack">
+                        <div class="server">
+                            <div class="server-light green"></div>
+                            <div class="server-line"></div>
+                            <div class="server-line"></div>
+                            <div class="server-light blue"></div>
+                            <div class="server-line"></div>
+                            <div class="server-line"></div>
+                            <div class="server-light green"></div>
+                            <div class="server-line"></div>
+                        </div>
+                        <div class="server">
+                            <div class="server-light blue"></div>
+                            <div class="server-line"></div>
+                            <div class="server-light green"></div>
+                            <div class="server-line"></div>
+                            <div class="server-line"></div>
+                            <div class="server-light orange"></div>
+                            <div class="server-line"></div>
+                            <div class="server-line"></div>
+                        </div>
+                        <div class="server">
+                            <div class="server-light green"></div>
+                            <div class="server-line"></div>
+                            <div class="server-line"></div>
+                            <div class="server-light green"></div>
+                            <div class="server-line"></div>
+                            <div class="server-light blue"></div>
+                            <div class="server-line"></div>
+                            <div class="server-line"></div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Badges -->
+                    <div class="floating-badge top-right">
+                        <div class="badge-icon"><i class="fas fa-check"></i></div>
+                        <div class="badge-text">
+                            <h4>99.9% Uptime</h4>
+                            <p>Guaranteed SLA</p>
+                        </div>
+                    </div>
+                    <div class="floating-badge bottom-left">
+                        <div class="badge-icon"><i class="fas fa-bolt"></i></div>
+                        <div class="badge-text">
+                            <h4>24/7 Support</h4>
+                            <p>Always Available</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="why-content">
+                <span class="section-tag">Why Choose Us</span>
+                <h2>We Deliver Technology That Works</h2>
+                <p>With over a decade of experience in infrastructure and engineering, Elhamco brings a unique perspective to IT solutions — combining physical infrastructure expertise with cutting-edge digital technology.</p>
+                
+                <div class="why-features">
+                    <div class="why-feature">
+                        <div class="feature-check">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Certified Engineers</h4>
+                            <p>Our team holds certifications from Cisco, Microsoft, AWS, and more.</p>
+                        </div>
+                    </div>
+                    <div class="why-feature">
+                        <div class="feature-check">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Scalable Solutions</h4>
+                            <p>Solutions that grow with your business, from startup to enterprise.</p>
+                        </div>
+                    </div>
+                    <div class="why-feature">
+                        <div class="feature-check">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>End-to-End Service</h4>
+                            <p>From consulting and design to deployment and ongoing management.</p>
+                        </div>
+                    </div>
+                    <div class="why-feature">
+                        <div class="feature-check">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Proven Track Record</h4>
+                            <p>150+ successful projects across multiple industries and sectors.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ TECH STACK ============ -->
+    <section class="tech-stack">
+        <div class="section-header">
+            <span class="section-tag">Technologies</span>
+            <h2>Our Technology Partners</h2>
+            <p>We work with industry-leading technologies to deliver the best solutions.</p>
+        </div>
+        <div class="tech-logos">
+            <div class="tech-logo">
+                <i class="fab fa-microsoft"></i>
+                <span>Microsoft</span>
+            </div>
+            <div class="tech-logo">
+                <i class="fab fa-aws"></i>
+                <span>AWS</span>
+            </div>
+            <div class="tech-logo">
+                <i class="fab fa-google"></i>
+                <span>Google</span>
+            </div>
+            <div class="tech-logo">
+                <i class="fab fa-linux"></i>
+                <span>Linux</span>
+            </div>
+            <div class="tech-logo">
+                <i class="fab fa-ubuntu"></i>
+                <span>Ubuntu</span>
+            </div>
+            <div class="tech-logo">
+                <i class="fas fa-network-wired"></i>
+                <span>Cisco</span>
+            </div>
+            <div class="tech-logo">
+                <i class="fab fa-docker"></i>
+                <span>Docker</span>
+            </div>
+            <div class="tech-logo">
+                <i class="fas fa-shield-halved"></i>
+                <span>Fortinet</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects">
+        <div class="section-header">
+            <span class="section-tag">Our Work</span>
+            <h2>Featured Projects</h2>
+            <p>Take a look at some of our recent IT infrastructure and networking projects.</p>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-image-bg gradient-1">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="project-overlay">
+                        <a href="#"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span class="project-tag">Networking</span>
+                        <span class="project-tag">Enterprise</span>
+                    </div>
+                    <h3>Corporate Office Network Setup</h3>
+                    <p>Complete LAN/WAN infrastructure for a 200+ employee corporate headquarters with redundant connectivity.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-image-bg gradient-2">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <div class="project-overlay">
+                        <a href="#"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span class="project-tag">Security</span>
+                        <span class="project-tag">Healthcare</span>
+                    </div>
+                    <h3>Hospital Surveillance System</h3>
+                    <p>200+ IP camera deployment with centralized NVR monitoring and AI-powered analytics for a major hospital.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-image-bg gradient-3">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="project-overlay">
+                        <a href="#"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        <span class="project-tag">Cloud</span>
+                        <span class="project-tag">Migration</span>
+                    </div>
+                    <h3>Cloud Migration Project</h3>
+                    <p>Seamless migration of on-premise servers to AWS cloud infrastructure with zero downtime for a retail chain.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="section" id="testimonials" style="background: rgba(0,212,255,0.02);">
+        <div class="section-header">
+            <span class="section-tag">Testimonials</span>
+            <h2>What Our Clients Say</h2>
+            <p>Don't just take our word for it — hear from businesses we've helped transform.</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <blockquote>"Elhamco Tech completely transformed our network infrastructure. The team was professional, efficient, and delivered beyond our expectations. Our uptime has been flawless since."</blockquote>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AK</div>
+                    <div class="author-info">
+                        <h4>Ahmed Khan</h4>
+                        <p>CEO, Khan Industries</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <blockquote>"The cybersecurity solutions they implemented have given us complete peace of mind. Their 24/7 monitoring has caught and prevented multiple threats. Highly recommended!"</blockquote>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SR</div>
+                    <div class="author-info">
+                        <h4>Sara Rehman</h4>
+                        <p>CTO, Digital Solutions Ltd</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <blockquote>"From CCTV installation to complete network overhaul, Elhamco Tech handled everything with expertise. Their background in construction gives them a unique edge in infrastructure projects."</blockquote>
+                <div class="testimonial-author">
+                    <div class="author-avatar">MH</div>
+                    <div class="author-info">
+                        <h4>Muhammad Hassan</h4>
+                        <p>Director, Al-Noor Group</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CTA SECTION ============ -->
+    <section class="cta-section" id="contact">
+        <div class="cta-box">
+            <h2>Ready to Transform Your IT Infrastructure?</h2>
+            <p>Let's discuss how Elhamco Tech can help you build a smarter, faster, and more secure technology foundation.</p>
+            <div class="cta-buttons">
+                <button class="btn-primary">
+                    <i class="fas fa-envelope"></i> Get a Free Quote
+                </button>
+                <button class="btn-secondary">
+                    <i class="fas fa-calendar"></i> Schedule a Call
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <a href="#" class="logo">
+                    <div class="logo-icon">E</div>
+                    <div class="logo-text">Elhamco<span>Tech</span></div>
+                </a>
+                <p>Your trusted partner for IT solutions, networking, and digital transformation. Building the future of technology, one connection at a time.</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right" style="font-size:10px;"></i> Network Infrastructure</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right" style="font-size:10px;"></i> Cybersecurity</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right" style="font-size:10px;"></i> Cloud Services</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right" style="font-size:10px;"></i> Server Management</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right" style="font-size:10px;"></i> CCTV & Surveillance</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right" style="font-size:10px;"></i> IT Support</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right" style="font-size:10px;"></i> About Us</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right" style="font-size:10px;"></i> Our Team</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right" style="font-size:10px;"></i> Careers</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right" style="font-size:10px;"></i> Blog</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right" style="font-size:10px;"></i> Partners</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="tel:+1234567890"><i class="fas fa-phone" style="font-size:12px;"></i> +1 (234) 567-890</a></li>
+                    <li><a href="mailto:info@elhamco.com"><i class="fas fa-envelope" style="font-size:12px;"></i> info@elhamco.com</a></li>
+                    <li><a href="#"><i class="fas fa-location-dot" style="font-size:12px;"></i> Your Business Address</a></li>
+                    <li><a href="#"><i class="fas fa-clock" style="font-size:12px;"></i> Mon-Sat: 9AM - 6PM</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Elhamco Tech. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Sitemap</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ SCROLL TO TOP ============ -->
+    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- ============ JAVASCRIPT ============ -->
+    <script>
+        // ===== Create Particles =====
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            particle.style.width = (Math.random() * 4 + 2) + 'px';
+            particle.style.height = particle.style.width;
+            const colors = ['#00d4ff', '#7b2ff7', '#00ff88', '#ff6b6b', '#ffa500'];
+            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+            particlesContainer.appendChild(particle);
+        }
+
+        // ===== Navbar Scroll Effect =====
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const scrollTop = document.getElementById('scrollTop');
+
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            if (window.scrollY > 500) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        // ===== Mobile Menu Toggle =====
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.getElementById('hamburger');
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        // ===== Counter Animation =====
+        const counters = document.querySelectorAll('.stat-number');
+        const speed = 50;
+
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-target');
+                    const increment = target / speed;
+
+                    const updateCounter = () => {
+                        const count = +counter.innerText;
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + increment);
+                            setTimeout(updateCounter, 30);
+                        } else {
+                            counter.innerText = target + '+';
+                        }
+                    };
+                    updateCounter();
+                    observer.unobserve(counter);
+                }
+            });
+        }, observerOptions);
+
+        counters.forEach(counter => observer.observe(counter));
+
+        // ===== Scroll Reveal Animation =====
+        const revealElements = document.querySelectorAll('.service-card, .project-card, .testimonial-card, .why-feature, .tech-logo');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            revealObserver.observe(el);
+        });
+
+        // ===== Smooth Scroll for Nav Links =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Close mobile menu if open
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+
+        // ===== Typing Effect for Hero (Optional Enhancement) =====
+        const typingText = document.querySelector('.gradient-text');
+        const words = ['Smart IT Solutions', 'Network Security', 'Cloud Infrastructure', 'Digital Innovation'];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            const currentWord = words[wordIndex];
+
+            if (isDeleting) {
+                typingText.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+            }
+
+            const typingSpeed = isDeleting ? 50 : 100;
+            setTimeout(typeEffect, typingSpeed);
+        }
+
+        setTimeout(typeEffect, 3000);
+    </script>
+</body>
+</html>
